@@ -69,26 +69,15 @@ public class RegionDAO {
 	/**
 	 * Método que inserta una registro en la BBDD
 	 */
-	public static void insertarRegion () {
+	public static void insertarRegion (RegionDTO region) {
 		
 		Connection conn = null;
 		Statement stmt = null;
 		int id_region = 0;
 		String name_region = null;
-		RegionDTO region = null;
 		ResultSet rset = null;
 	
 		try {
-			System.out.println("Crear nueva Región: /n");
-			Scanner sc = new Scanner(System.in);
-			System.out.print("Introduzca ID de Región: /n"); //El 'print' me deja escribir en la misma línea
-			id_region = sc.nextInt();
-			Scanner sc2 = new Scanner(System.in);
-			System.out.print("Introduzca nombre de la Región: /n"); //El 'print' me deja escribir en la misma línea
-			name_region = sc2.nextLine();
-			
-			region = new RegionDTO(id_region, name_region);
-			
 			conn = ConexionRegion.obtenerConexion();
 			PreparedStatement pstmt = conn.prepareStatement(InstruccionesRegion.INSERTAR_REGION);     
 			pstmt.setInt(1, id_region);	
