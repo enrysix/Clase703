@@ -101,9 +101,9 @@ public class RegionDAO {
 	 * @param region_id
 	 * @return
 	 */
-	public static RegionDAO recuperarId (int region_id) {
+	public static RegionDTO recuperarId (int region_id) {
 		
-		RegionDAO region = null;
+		RegionDTO region = null;
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rset = null;
